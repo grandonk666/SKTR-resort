@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaCocktail, FaHiking, FaShuttleVan, FaBeer } from "react-icons/fa";
 import Title from "./Title";
 
 function Services() {
-  const [services, setServices] = useState([
+  const services = [
     {
       icon: <FaCocktail />,
       title: "Free Cocktail",
@@ -28,13 +28,13 @@ function Services() {
       info:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, obcaecati!",
     },
-  ]);
+  ];
 
   return (
     <section className="services">
       <Title title="services" />
       <div className="services-center">
-        {services.map((service, index) =>  (
+        {services.map((service, index) => (
           <article key={index} className="service">
             <span>{service.icon}</span>
             <h6>{service.title}</h6>

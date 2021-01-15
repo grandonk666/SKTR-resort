@@ -61,7 +61,7 @@ function RoomProvider({ children }) {
     });
   };
 
-  const filterRooms = () => {
+  useEffect(() => {
     let tempRooms = [...rooms];
     const capacity = parseInt(filter.capacity);
     const price = parseInt(filter.price);
@@ -88,10 +88,6 @@ function RoomProvider({ children }) {
     );
 
     setSortedRooms(tempRooms);
-  };
-
-  useEffect(() => {
-    filterRooms();
   }, [filter, rooms]);
 
   return (
