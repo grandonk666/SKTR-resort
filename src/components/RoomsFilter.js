@@ -3,10 +3,10 @@ import { RoomContext } from "../Context";
 import Title from "../components/Title";
 
 const getUniqe = (items, value) => {
-  return [...new Set(items.map(item => item[value]))]
-}
+  return [...new Set(items.map((item) => item[value]))];
+};
 
-function RoomsFilter({rooms}) {
+function RoomsFilter({ rooms }) {
   const context = useContext(RoomContext);
   const {
     handleChange,
@@ -23,23 +23,22 @@ function RoomsFilter({rooms}) {
 
   const uniqueTypes = ["all", ...getUniqe(rooms, "type")];
   const types = uniqueTypes.map((item, index) => (
-    <option value={item} key={index} >
+    <option value={item} key={index}>
       {item}
     </option>
-  ))
+  ));
 
-  const uniqueCapacity = getUniqe(rooms, "capacity")
+  const uniqueCapacity = getUniqe(rooms, "capacity");
   const guest = uniqueCapacity.map((item, index) => (
-    <option value={item} key={index} >
+    <option value={item} key={index}>
       {item}
     </option>
-  ))
+  ));
 
   return (
     <section className="filter-container">
-      <Title title="Search Rooms" />
+      <Title title="Filter Rooms" />
       <form className="filter-form">
-
         <div className="form-group">
           <label htmlFor="type">Room Type</label>
           <select
@@ -67,9 +66,7 @@ function RoomsFilter({rooms}) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="price">
-            Room Price ${price}
-          </label>
+          <label htmlFor="price">Room Price ${price}</label>
           <input
             className="form-control"
             type="range"
@@ -126,7 +123,6 @@ function RoomsFilter({rooms}) {
             <label htmlFor="pets">Pets</label>
           </div>
         </div>
-
       </form>
     </section>
   );
